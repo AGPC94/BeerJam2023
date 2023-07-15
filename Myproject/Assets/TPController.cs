@@ -15,6 +15,8 @@ public class TPController : MonoBehaviour
     [SerializeField] float rotationSpeed = 720;
     [SerializeField] float ySpeedGrounded = -0.5f;
 
+    [SerializeField] float pushForce;
+
     [Header("Run")]
     [SerializeField] float runSpeed;
     [SerializeField] bool isRunning;
@@ -114,8 +116,6 @@ public class TPController : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
             lastJumpedTime = Time.time;
     }
-
-    float velocitySmoothing;
 
     void Movement()
     {
@@ -298,5 +298,14 @@ public class TPController : MonoBehaviour
     {
         Gizmos.DrawRay(transform.position, Vector3.down * raySlopeLength);
 
+    }
+
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.transform.CompareTag("Bottle"))
+        {
+            Rigidbody rb = hit.collider.attachedRigidbody;
+            rb.velocity = hit.moveDirection * pushForce;
+        }
     }
 }
