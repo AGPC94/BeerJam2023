@@ -24,7 +24,6 @@ public class TPController : MonoBehaviour
     [Header("Slope")]
     [SerializeField] float raySlopeLength = 2;
     [SerializeField] LayerMask whatIsGround;
-    bool isSliding;
 
     [Header("Jump")]
     [SerializeField] float timeToJumpApex = .4f;
@@ -264,11 +263,9 @@ public class TPController : MonoBehaviour
 
             if (angle >= controller.slopeLimit)
             {
-                isSliding = true;
                 return Vector3.ProjectOnPlane(new Vector3(0, ySpeed, 0), hit.normal);
             }
         }
-        isSliding = false;
         return Vector3.zero;
     }
      
@@ -308,4 +305,5 @@ public class TPController : MonoBehaviour
             rb.velocity = hit.moveDirection * pushForce;
         }
     }
+
 }
