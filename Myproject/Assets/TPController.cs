@@ -15,6 +15,8 @@ public class TPController : MonoBehaviour
     [SerializeField] float rotationSpeed = 720;
     [SerializeField] float ySpeedGrounded = -0.5f;
 
+    [SerializeField] float pushForce;
+
     [Header("Run")]
     [SerializeField] float runSpeed;
     [SerializeField] bool isRunning;
@@ -22,7 +24,6 @@ public class TPController : MonoBehaviour
     [Header("Slope")]
     [SerializeField] float raySlopeLength = 2;
     [SerializeField] LayerMask whatIsGround;
-    bool isSliding;
 
     [Header("Jump")]
     [SerializeField] float timeToJumpApex = .4f;
@@ -114,8 +115,6 @@ public class TPController : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
             lastJumpedTime = Time.time;
     }
-
-    float velocitySmoothing;
 
     void Movement()
     {
@@ -264,11 +263,9 @@ public class TPController : MonoBehaviour
 
             if (angle >= controller.slopeLimit)
             {
-                isSliding = true;
                 return Vector3.ProjectOnPlane(new Vector3(0, ySpeed, 0), hit.normal);
             }
         }
-        isSliding = false;
         return Vector3.zero;
     }
      
@@ -299,4 +296,14 @@ public class TPController : MonoBehaviour
         Gizmos.DrawRay(transform.position, Vector3.down * raySlopeLength);
 
     }
+
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.transform.CompareTag("Bottle"))
+        {
+            Rigidbody rb = hit.collider.attachedRigidbody;
+            rb.velocity = hit.moveDirection * pushForce;
+        }
+    }
+
 }
