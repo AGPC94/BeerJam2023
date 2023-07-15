@@ -1,0 +1,388 @@
+{
+    "m_SGVersion": 3,
+    "m_Type": "UnityEditor.ShaderGraph.GraphData",
+    "m_ObjectId": "9cce56dafbec45298a3a3829dd1b8c94",
+    "m_Properties": [],
+    "m_Keywords": [],
+    "m_Dropdowns": [],
+    "m_CategoryData": [
+        {
+            "m_Id": "804a5611e65e47a5b0c04531111385e2"
+        }
+    ],
+    "m_Nodes": [
+        {
+            "m_Id": "d0c57d02e01b47eca0424f6172d2adaa"
+        },
+        {
+            "m_Id": "02d1943586d14190b4498f93191af42b"
+        },
+        {
+            "m_Id": "531e444d9a8849e8b220f02f8dd46bda"
+        },
+        {
+            "m_Id": "a1e938049dcc421bac09228500ac1874"
+        },
+        {
+            "m_Id": "f3778376ba974f08aabf29b55d9c2b46"
+        }
+    ],
+    "m_GroupDatas": [],
+    "m_StickyNoteDatas": [],
+    "m_Edges": [],
+    "m_VertexContext": {
+        "m_Position": {
+            "x": 0.0,
+            "y": 0.0
+        },
+        "m_Blocks": [
+            {
+                "m_Id": "d0c57d02e01b47eca0424f6172d2adaa"
+            },
+            {
+                "m_Id": "02d1943586d14190b4498f93191af42b"
+            },
+            {
+                "m_Id": "531e444d9a8849e8b220f02f8dd46bda"
+            }
+        ]
+    },
+    "m_FragmentContext": {
+        "m_Position": {
+            "x": 0.0,
+            "y": 200.0
+        },
+        "m_Blocks": [
+            {
+                "m_Id": "a1e938049dcc421bac09228500ac1874"
+            }
+        ]
+    },
+    "m_PreviewData": {
+        "serializedMesh": {
+            "m_SerializedMesh": "{\"mesh\":{\"instanceID\":0}}",
+            "m_Guid": ""
+        },
+        "preventRotation": false
+    },
+    "m_Path": "Shader Graphs",
+    "m_GraphPrecision": 1,
+    "m_PreviewMode": 2,
+    "m_OutputNode": {
+        "m_Id": ""
+    },
+    "m_ActiveTargets": [
+        {
+            "m_Id": "97871466628a4e5a92274bfdee267e82"
+        }
+    ]
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.BlockNode",
+    "m_ObjectId": "02d1943586d14190b4498f93191af42b",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "VertexDescription.Normal",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": 0.0,
+            "y": 0.0,
+            "width": 0.0,
+            "height": 0.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "9f92807c16ae47ed81f03951bb0bb9b2"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_SerializedDescriptor": "VertexDescription.Normal"
+}
+
+{
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.Rendering.Universal.ShaderGraph.UniversalUnlitSubTarget",
+    "m_ObjectId": "3c16dd8e9e9f4422a71af8002c9c3921"
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.TangentMaterialSlot",
+    "m_ObjectId": "4f8153250af0495eaeb589feaa3518d6",
+    "m_Id": 0,
+    "m_DisplayName": "Tangent",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Tangent",
+    "m_StageCapability": 1,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "m_Labels": [],
+    "m_Space": 0
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.BlockNode",
+    "m_ObjectId": "531e444d9a8849e8b220f02f8dd46bda",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "VertexDescription.Tangent",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": 0.0,
+            "y": 0.0,
+            "width": 0.0,
+            "height": 0.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "4f8153250af0495eaeb589feaa3518d6"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_SerializedDescriptor": "VertexDescription.Tangent"
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.CategoryData",
+    "m_ObjectId": "804a5611e65e47a5b0c04531111385e2",
+    "m_Name": "",
+    "m_ChildObjectList": []
+}
+
+{
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.Rendering.Universal.ShaderGraph.UniversalTarget",
+    "m_ObjectId": "97871466628a4e5a92274bfdee267e82",
+    "m_ActiveSubTarget": {
+        "m_Id": "3c16dd8e9e9f4422a71af8002c9c3921"
+    },
+    "m_AllowMaterialOverride": false,
+    "m_SurfaceType": 0,
+    "m_ZTestMode": 4,
+    "m_ZWriteControl": 0,
+    "m_AlphaMode": 0,
+    "m_RenderFace": 2,
+    "m_AlphaClip": false,
+    "m_CastShadows": true,
+    "m_ReceiveShadows": true,
+    "m_CustomEditorGUI": "",
+    "m_SupportVFX": false
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.NormalMaterialSlot",
+    "m_ObjectId": "9f92807c16ae47ed81f03951bb0bb9b2",
+    "m_Id": 0,
+    "m_DisplayName": "Normal",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Normal",
+    "m_StageCapability": 1,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "m_Labels": [],
+    "m_Space": 0
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.BlockNode",
+    "m_ObjectId": "a1e938049dcc421bac09228500ac1874",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "SurfaceDescription.BaseColor",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": 0.0,
+            "y": 0.0,
+            "width": 0.0,
+            "height": 0.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "fefef24f9edd4c5ea21a94b95ac40316"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_SerializedDescriptor": "SurfaceDescription.BaseColor"
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.PositionMaterialSlot",
+    "m_ObjectId": "c7e2d1b7af7e480296e523df7b1afca6",
+    "m_Id": 0,
+    "m_DisplayName": "Position",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Position",
+    "m_StageCapability": 1,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "m_Labels": [],
+    "m_Space": 0
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.BlockNode",
+    "m_ObjectId": "d0c57d02e01b47eca0424f6172d2adaa",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "VertexDescription.Position",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": 0.0,
+            "y": 0.0,
+            "width": 0.0,
+            "height": 0.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "c7e2d1b7af7e480296e523df7b1afca6"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_SerializedDescriptor": "VertexDescription.Position"
+}
+
+{
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.CustomFunctionNode",
+    "m_ObjectId": "f3778376ba974f08aabf29b55d9c2b46",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "CustomLighting (Custom Function)",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -447.0,
+            "y": 105.0,
+            "width": 217.0,
+            "height": 245.0
+        }
+    },
+    "m_Slots": [],
+    "synonyms": [
+        "code",
+        "HLSL"
+    ],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_SourceType": 0,
+    "m_FunctionName": "CustomLighting",
+    "m_FunctionSource": "9594bdfdc102adf4bb605b41e2fb5ff9",
+    "m_FunctionBody": "// MIT License\r\n\r\n// Copyright (c) 2021 NedMakesGames\r\n\r\n// Permission is hereby granted, free of charge, to any person obtaining a copy\r\n// of this software and associated documentation files(the \"Software\"), to deal\r\n// in the Software without restriction, including without limitation the rights\r\n// to use, copy, modify, merge, publish, distribute, sublicense, and / or sell\r\n// copies of the Software, and to permit persons to whom the Software is\r\n// furnished to do so, subject to the following conditions :\r\n\r\n// The above copyright notice and this permission notice shall be included in all\r\n// copies or substantial portions of the Software.\r\n\r\n// THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\r\n// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\r\n// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE\r\n// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\r\n// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\r\n// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\r\n// SOFTWARE.\r\n\r\n#ifndef CUSTOM_LIGHTING_INCLUDED\r\n#define CUSTOM_LIGHTING_INCLUDED\r\n\r\n// This is a neat trick to work around a bug in the shader graph when\r\n// enabling shadow keywords. Created by @cyanilux\r\n// https://github.com/Cyanilux/URP_ShaderGraphCustomLighting\r\n// Licensed under the MIT License, Copyright (c) 2020 Cyanilux\r\n#ifndef SHADERGRAPH_PREVIEW\r\n    #include \"Packages/com.unity.render-pipelines.universal/Editor/ShaderGraph/Includes/ShaderPass.hlsl\"\r\n    #if (SHADERPASS != SHADERPASS_FORWARD)\r\n        #undef REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR\r\n    #endif\r\n#endif\r\n\r\nstruct CustomLightingData {\r\n    // Position and orientation\r\n    float3 positionWS;\r\n    float3 normalWS;\r\n    float3 viewDirectionWS;\r\n    float4 shadowCoord;\r\n\r\n    // Surface attributes\r\n    float3 albedo;\r\n    float smoothness;\r\n    float ambientOcclusion;\r\n\r\n    // Baked lighting\r\n    float3 bakedGI;\r\n    float4 shadowMask;\r\n    float fogFactor;\r\n};\r\n\r\n// Translate a [0, 1] smoothness value to an exponent \r\nfloat GetSmoothnessPower(float rawSmoothness) {\r\n    return exp2(10 * rawSmoothness + 1);\r\n}\r\n\r\n#ifndef SHADERGRAPH_PREVIEW\r\nfloat3 CustomGlobalIllumination(CustomLightingData d) {\r\n    float3 indirectDiffuse = d.albedo * d.bakedGI * d.ambientOcclusion;\r\n\r\n    float3 reflectVector = reflect(-d.viewDirectionWS, d.normalWS);\r\n    // This is a rim light term, making reflections stronger along\r\n    // the edges of view\r\n    float fresnel = Pow4(1 - saturate(dot(d.viewDirectionWS, d.normalWS)));\r\n    // This function samples the baked reflections cubemap\r\n    // It is located in URP/ShaderLibrary/Lighting.hlsl\r\n    float3 indirectSpecular = GlossyEnvironmentReflection(reflectVector,\r\n        RoughnessToPerceptualRoughness(1 - d.smoothness),\r\n        d.ambientOcclusion) * fresnel;\r\n\r\n    return indirectDiffuse + indirectSpecular;\r\n}\r\n\r\nfloat3 CustomLightHandling(CustomLightingData d, Light light) {\r\n\r\n    float3 radiance = light.color * (light.distanceAttenuation * light.shadowAttenuation);\r\n\r\n    float diffuse = saturate(dot(d.normalWS, light.direction));\r\n    float specularDot = saturate(dot(d.normalWS, normalize(light.direction + d.viewDirectionWS)));\r\n    float specular = pow(specularDot, GetSmoothnessPower(d.smoothness)) * diffuse;\r\n\r\n    float3 color = d.albedo * radiance * (diffuse + specular);\r\n\r\n    return color;\r\n}\r\n#endif\r\n\r\nfloat3 CalculateCustomLighting(CustomLightingData d) {\r\n#ifdef SHADERGRAPH_PREVIEW\r\n    // In preview, estimate diffuse + specular\r\n    float3 lightDir = float3(0.5, 0.5, 0);\r\n    float intensity = saturate(dot(d.normalWS, lightDir)) +\r\n        pow(saturate(dot(d.normalWS, normalize(d.viewDirectionWS + lightDir))), GetSmoothnessPower(d.smoothness));\r\n    return d.albedo * intensity;\r\n#else\r\n    // Get the main light. Located in URP/ShaderLibrary/Lighting.hlsl\r\n    Light mainLight = GetMainLight(d.shadowCoord, d.positionWS, d.shadowMask);\r\n    // In mixed subtractive baked lights, the main light must be subtracted\r\n    // from the bakedGI value. This function in URP/ShaderLibrary/Lighting.hlsl takes care of that.\r\n    MixRealtimeAndBakedGI(mainLight, d.normalWS, d.bakedGI);\r\n    float3 color = CustomGlobalIllumination(d);\r\n    // Shade the main light\r\n    color += CustomLightHandling(d, mainLight);\r\n\r\n    #ifdef _ADDITIONAL_LIGHTS\r\n        // Shade additional cone and point lights. Functions in URP/ShaderLibrary/Lighting.hlsl\r\n        uint numAdditionalLights = GetAdditionalLightsCount();\r\n        for (uint lightI = 0; lightI < numAdditionalLights; lightI++) {\r\n            Light light = GetAdditionalLight(lightI, d.positionWS, d.shadowMask);\r\n            color += CustomLightHandling(d, light);\r\n        }\r\n    #endif\r\n\r\n    color = MixFog(color, d.fogFactor);\r\n\r\n    return color;\r\n#endif\r\n}\r\n\r\nvoid CalculateCustomLighting_float(float3 Position, float3 Normal, float3 ViewDirection,\r\n    float3 Albedo, float Smoothness, float AmbientOcclusion,\r\n    float2 LightmapUV,\r\n    out float3 Color) {\r\n\r\n    CustomLightingData d;\r\n    d.positionWS = Position;\r\n    d.normalWS = Normal;\r\n    d.viewDirectionWS = ViewDirection;\r\n    d.albedo = Albedo;\r\n    d.smoothness = Smoothness;\r\n    d.ambientOcclusion = AmbientOcclusion;\r\n\r\n#ifdef SHADERGRAPH_PREVIEW\r\n    // In preview, there's no shadows or bakedGI\r\n    d.shadowCoord = 0;\r\n    d.bakedGI = 0;\r\n    d.shadowMask = 0;\r\n    d.fogFactor = 0;\r\n#else\r\n    // Calculate the main light shadow coord\r\n    // There are two types depending on if cascades are enabled\r\n    float4 positionCS = TransformWorldToHClip(Position);\r\n    #if SHADOWS_SCREEN\r\n        d.shadowCoord = ComputeScreenPos(positionCS);\r\n    #else\r\n        d.shadowCoord = TransformWorldToShadowCoord(Position);\r\n    #endif\r\n\r\n    // The following URP functions and macros are all located in\r\n    // URP/ShaderLibrary/Lighting.hlsl\r\n    // Technically, OUTPUT_LIGHTMAP_UV, OUTPUT_SH and ComputeFogFactor\r\n    // should be called in the vertex function of the shader. However, as of\r\n    // 2021.1, we do not have access to custom interpolators in the shader graph.\r\n\r\n    // The lightmap UV is usually in TEXCOORD1\r\n    // If lightmaps are disabled, OUTPUT_LIGHTMAP_UV does nothing\r\n    float2 lightmapUV;\r\n    OUTPUT_LIGHTMAP_UV(LightmapUV, unity_LightmapST, lightmapUV);\r\n    // Samples spherical harmonics, which encode light probe data\r\n    float3 vertexSH;\r\n    OUTPUT_SH(Normal, vertexSH);\r\n    // This function calculates the final baked lighting from light maps or probes\r\n    d.bakedGI = SAMPLE_GI(lightmapUV, vertexSH, Normal);\r\n    // This function calculates the shadow mask if baked shadows are enabled\r\n    d.shadowMask = SAMPLE_SHADOWMASK(lightmapUV);\r\n    // This returns 0 if fog is turned off\r\n    // It is not the same as the fog node in the shader graph\r\n    d.fogFactor = ComputeFogFactor(positionCS.z);\r\n#endif\r\n\r\n    Color = CalculateCustomLighting(d);\r\n}\r\n\r\n#endif"
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.ColorRGBMaterialSlot",
+    "m_ObjectId": "fefef24f9edd4c5ea21a94b95ac40316",
+    "m_Id": 0,
+    "m_DisplayName": "Base Color",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "BaseColor",
+    "m_StageCapability": 2,
+    "m_Value": {
+        "x": 0.5,
+        "y": 0.5,
+        "z": 0.5
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "m_Labels": [],
+    "m_ColorMode": 0,
+    "m_DefaultColor": {
+        "r": 0.5,
+        "g": 0.5,
+        "b": 0.5,
+        "a": 1.0
+    }
+}
+
