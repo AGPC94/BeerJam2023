@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    Vector3 checkPoint;
-    [HideInInspector] public Chef chef;
-    [HideInInspector] public TPController player;
+    public Vector3 checkPoint;
+    public Chef chef;
+    public TPController player;
+
+    [SerializeField] string finalScene;
 
     public static GameManager instance;
 
@@ -35,13 +38,8 @@ public class GameManager : MonoBehaviour
         checkPoint = cp;
     }
 
-    public void Death()
-    {
-
-    }
-
     public void Finish()
     {
-
+        //SceneManager.LoadScene(finalScene);
     }
 }

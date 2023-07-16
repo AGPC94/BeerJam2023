@@ -9,6 +9,7 @@ public class Window : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Jugador llega a la ventana");
+            GameManager.instance.Finish();
         }
     }
 }

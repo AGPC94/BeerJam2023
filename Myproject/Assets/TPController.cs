@@ -15,7 +15,10 @@ public class TPController : MonoBehaviour
     [SerializeField] float rotationSpeed = 720;
     [SerializeField] float ySpeedGrounded = -0.5f;
 
+    [Header("Other")]
     [SerializeField] float pushForce;
+    [SerializeField] float timeToRespawn;
+    [SerializeField] float noiseRange;
 
     [Header("Run")]
     [SerializeField] float runSpeed;
@@ -54,20 +57,17 @@ public class TPController : MonoBehaviour
     float gravity;
     float ySpeed;
 
-    //Impact
-    Vector3 impact;
-    Vector3 veloDash;
-    //float brakeCurrent;
-
     //Components
     Camera cam;
     CharacterController controller;
+    Animator animator;
     #endregion
 
     void Awake()
     {
         cam = Camera.main;
         controller = GetComponent<CharacterController>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Start is called before the first frame update
@@ -92,18 +92,45 @@ public class TPController : MonoBehaviour
             Movement();
             Jump();
             Rotate();
-        }
 
-        ConsumeImpact();
+            if (Vector3.Distance(transform.position, GameManager.instance.chef.transform.position) <= noiseRange && isRunning && GameManager.instance.chef.state == State.PATROL)
+            {
+                GameManager.instance.chef.ChangeState(State.SUSPECT, transform);
+            }
+        }
 
         Velocity();
 
         Collisions();
 
+        Animations();
         //Check in inspector
         isGrounded = controller.isGrounded;
 
     }
+
+    void Animations()
+    {
+        animator.SetBool("isGrounded", controller.isGrounded);
+        animator.SetFloat("magnitude", moveMagnitude);
+    }
+
+    public void Die()
+    {
+        canMove = false;
+        animator.SetTrigger("die");
+        controller.enabled = false;
+        Invoke("Respawn", timeToRespawn);
+    }
+
+    void Respawn()
+    {
+        Debug.Log("Respawn()");
+        controller.transform.position = GameManager.instance.checkPoint;
+        controller.enabled = true;
+        canMove = true;
+    }
+
 
     void Inputs()
     {
@@ -147,10 +174,15 @@ public class TPController : MonoBehaviour
             lastGroundedTime = Time.time;
 
         if (IsPossibleToJump())
+        {
             ySpeed = maxJumpVelocity;
+            animator.SetTrigger("jump");
+        }
 
         if (Input.GetButtonUp("Jump") && velocity.y > minJumpVelocity)
             ySpeed = minJumpVelocity;
+
+
     }
 
     void Velocity()
@@ -225,7 +257,6 @@ public class TPController : MonoBehaviour
         ResetCoyoteTime();
     }
 
-
     void Collisions()
     {
         if (controller.collisionFlags == CollisionFlags.Above)
@@ -236,7 +267,6 @@ public class TPController : MonoBehaviour
         if (controller.collisionFlags == CollisionFlags.Below)
         {
             ySpeed = ySpeedGrounded;
-            canMove = true;
         }
 
     }
@@ -268,32 +298,13 @@ public class TPController : MonoBehaviour
         }
         return Vector3.zero;
     }
-     
-    void ConsumeImpact()
-    {
-        if (impact.magnitude > impactMagnitudeMin)
-        {
-            controller.Move(impact * Time.deltaTime);
-        }
-        impact = Vector3.SmoothDamp(impact, Vector3.zero, ref veloDash, impactSmoothTimeCurrent);
-
-        //impact = Vector3.Lerp(impact, Vector3.zero, brakeCurrent * Time.deltaTime);
-    }
-
-    public void AddImpact(Vector3 dir, float force, float smoothTime)
-    {
-        impactSmoothTimeCurrent = smoothTime;
-
-        dir.Normalize();
-
-        if (dir.y < 0) dir.y = -dir.y;
-
-        impact += dir.normalized * force / mass;
-    }
 
     void OnDrawGizmos()
     {
         Gizmos.DrawRay(transform.position, Vector3.down * raySlopeLength);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, noiseRange);
 
     }
 
