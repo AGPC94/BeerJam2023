@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public enum State { PATROL, SUSPECT, CHASE };
 public class Chef : MonoBehaviour
 {
-    [SerializeField] State state;
+    [SerializeField] public State state;
 
     [Header("Patrol")]
     [SerializeField] Transform[] waypoints;
@@ -25,6 +25,16 @@ public class Chef : MonoBehaviour
     [SerializeField] float eyeDistance;
     float eyeDistanceCurrent;
 
+    [Header("Speeds")]
+    [SerializeField] float speedPatrol;
+    [SerializeField] float speedSuspect;
+    [SerializeField] float speedAttack;
+
+
+    [Header("Hands")]
+    [SerializeField] Transform rightHand;
+    [SerializeField] Transform leftHand;
+
     bool isWaiting;
     float distance;
     int current;
@@ -35,10 +45,12 @@ public class Chef : MonoBehaviour
     Transform targetCurrent;
 
     NavMeshAgent agent;
+    Animator animator;
 
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
@@ -46,6 +58,7 @@ public class Chef : MonoBehaviour
     {
         rotPatrol = new Vector3(0, 270, 0);
         current = 0;
+        ChangeState(State.PATROL, null);
     }
 
     // Update is called once per frame
@@ -58,23 +71,26 @@ public class Chef : MonoBehaviour
                     Move();
                 break;
             case State.SUSPECT:
-                agent.updateRotation = true;
+                agent.updateRotation = false;
                 break;
 
             case State.CHASE:
-                agent.updateRotation = true;
+                agent.updateRotation = false;
                 agent.SetDestination(GameManager.instance.player.transform.position);
                 break;
         }
 
         Detect();
 
+        animator.SetBool("atk", state == State.CHASE);
+        animator.SetBool("look", state == State.SUSPECT);
+        animator.SetBool("walk", state == State.PATROL);
     }
     void Move()
     {
         Vector3 wp = waypoints[current].transform.position;
-        agent.SetDestination(wp);
 
+        agent.SetDestination(wp);
         agent.updateRotation = false;
         //transform.eulerAngles = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(rotPatrol, Vector3.up), rotationSpeed * Time.deltaTime).eulerAngles;
         transform.eulerAngles = rotPatrol;
@@ -110,9 +126,12 @@ public class Chef : MonoBehaviour
     void Detect()
     {
         //Detectar al jugador
-        if (Physics.SphereCast(eyeOrigin.position, eyeRadius, eyeOrigin.forward, out RaycastHit hit, eyeDistance, whatItDetects, QueryTriggerInteraction.UseGlobal))
+        if (Physics.SphereCast(eyeOrigin.position, eyeRadius, eyeOrigin.forward, out RaycastHit hit, eyeDistance, whatItDetects))
         {
-            eyeDistanceCurrent = hit.distance;
+            if (hit.collider.CompareTag("Player") && state == State.SUSPECT)
+            {
+                Debug.Log("CHEF sospecha de jugador");
+            }
 
             if (hit.collider.CompareTag("Player") && state != State.CHASE)
             {
@@ -126,14 +145,11 @@ public class Chef : MonoBehaviour
         }
 
         //Comprobar que el jugador se escapa
-        /*
         if (!isPlayerInside() && state == State.CHASE)
         {
             Debug.Log("CHEF pierde de vista a jugador");
             ChangeState(State.PATROL, null);
         }
-        */
-
     }
 
     bool isPlayerInside()
@@ -158,14 +174,33 @@ public class Chef : MonoBehaviour
         {
             case State.PATROL:
                 targetCurrent = null;
+                agent.speed = speedPatrol;
                 break;
             case State.SUSPECT:
                 targetCurrent = targetNew;
+                agent.speed = speedSuspect;
                 break;
             case State.CHASE:
+                agent.speed = speedAttack;
                 targetCurrent = targetNew;
                 break;
         }
+    }
+    public void BackToPatrol()
+    {
+        state = State.PATROL;
+        targetCurrent = null;
+        agent.speed = speedPatrol;
+
+    }
+
+    public void ThrowKnifeRightHand()
+    {
+        ObjectPooler.instance.SpawnFromPool("Knife", rightHand.position, Quaternion.LookRotation(transform.forward));
+    }
+    public void ThrowKnifeLeftHand()
+    {
+        ObjectPooler.instance.SpawnFromPool("Knife", leftHand.position, Quaternion.LookRotation(transform.forward));
     }
 
     public void ChangeWaypoints(Transform[] wps, Vector3 rot)
@@ -174,13 +209,14 @@ public class Chef : MonoBehaviour
         current = 0;
         rotPatrol = rot;
     }
+
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(eyeOrigin.position, eyeOrigin.position + eyeOrigin.forward * eyeDistanceCurrent);
-        Gizmos.DrawWireSphere(eyeOrigin.position + eyeOrigin.forward * eyeDistanceCurrent, eyeRadius);
+        Gizmos.DrawLine(eyeOrigin.position, eyeOrigin.position + eyeOrigin.forward * eyeDistance);
+        Gizmos.DrawWireSphere(eyeOrigin.position + eyeOrigin.forward * eyeDistance, eyeRadius);
 
-        Gizmos.DrawWireSphere(eyeOrigin2.position, eyeRadius);
+        //Gizmos.DrawWireSphere(eyeOrigin2.position, eyeRadius);
 
         if (waypoints != null)
         {

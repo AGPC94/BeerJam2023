@@ -9,6 +9,7 @@ public class InstakillZone : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Instakill");
+            other.GetComponent<TPController>().Die();
         }
     }
 }
