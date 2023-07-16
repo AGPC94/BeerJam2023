@@ -1,0 +1,20 @@
+.button_main_tittle {
+    background-color: rgba(255, 255, 255, 0);
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    -unity-font: url('project://database/Assets/UI%20Toolkit/Fonts/Kitchen.ttf?fileID=12800000&guid=5d76c39b34695524e857a989daf154de&type=3#Kitchen');
+    font-size: 90px;
+    opacity: 1;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 255);
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+}
+
+.button_main_tittle:hover {
+}

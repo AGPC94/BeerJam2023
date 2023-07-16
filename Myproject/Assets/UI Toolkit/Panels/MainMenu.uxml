@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/Labels.uss?fileID=7433441132597879392&amp;guid=681b3dc25cba8354d854586452f12130&amp;type=3#Labels" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/Buttons.uss?fileID=7433441132597879392&amp;guid=690b6ae494d9fe540848aec69250d902&amp;type=3#Buttons" />
+    <ui:VisualElement name="Background" style="flex-grow: 1; flex-direction: row;">
+        <ui:VisualElement name="SideBar" style="width: 35%; background-image: url(&apos;project://database/Assets/UI%20Toolkit/UI_Images/TablaCortarUI.png?fileID=2800000&amp;guid=b54f700b53c89d640adb745d132c8cf5&amp;type=3#TablaCortarUI&apos;); left: 1%; top: 2.5%; height: 95%; justify-content: space-between;">
+            <ui:VisualElement name="TITULO" style="width: 100%; height: 20%; background-image: url(&apos;project://database/Assets/UI%20Toolkit/UI_Images/Portada_ESCAPA_CANGREJO.png?fileID=2800000&amp;guid=8fe32947590eb8543b2e3aae77696dc7&amp;type=3#Portada_ESCAPA_CANGREJO&apos;); background-color: rgba(0, 0, 0, 0);" />
+            <ui:Button tabindex="-1" text="JUGAR" display-tooltip-when-elided="true" class="button_main_tittle" style="margin-bottom: 10%; margin-top: 10%; width: auto; height: 10%;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
