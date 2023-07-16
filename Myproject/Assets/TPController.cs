@@ -93,7 +93,10 @@ public class TPController : MonoBehaviour
             Jump();
             Rotate();
 
-            if (Vector3.Distance(transform.position, GameManager.instance.chef.transform.position) <= noiseRange && isRunning && GameManager.instance.chef.state == State.PATROL)
+            if (Vector3.Distance(transform.position, GameManager.instance.chef.transform.position) <= noiseRange
+                &&
+                isRunning && moveMagnitude >= 0.1f
+                && GameManager.instance.chef.state == State.PATROL)
             {
                 GameManager.instance.chef.ChangeState(State.SUSPECT, transform);
             }
@@ -193,7 +196,7 @@ public class TPController : MonoBehaviour
 
         if (canMove)
         {
-            if (isRunning)
+            if (isRunning && controller.isGrounded)
                 velocity = moveDir * runSpeed * moveMagnitude;
             else
                 velocity = moveDir * walkSpeed * moveMagnitude;

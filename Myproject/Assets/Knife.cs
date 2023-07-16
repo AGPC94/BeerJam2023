@@ -19,12 +19,16 @@ public class Knife : MonoBehaviour, IPooledObject
 
     public void OnObjectSpawn()
     {
-        rb.velocity = Vector3.zero;
+        //rb.velocity = Vector3.zero;
         rb.rotation = Quaternion.Euler(Vector3.zero);
 
-        forceImpulse = Random.Range(forceImpulseMin, forceImpulseMax);
+        //forceImpulse = Random.Range(forceImpulseMin, forceImpulseMax);
 
-        rb.AddForce(transform.forward * forceImpulse, ForceMode.Impulse);
+        Vector3 direction = (GameManager.instance.player.transform.position - transform.position).normalized;
+
+        rb.velocity = direction * forceImpulse;
+
+        //rb.AddForce(, ForceMode.Impulse);
         rb.AddTorque(transform.right * forceTorque, ForceMode.Impulse);
     }
 }
