@@ -14,7 +14,7 @@ public class Chef : MonoBehaviour
     [SerializeField] bool isLooping = true;
     [SerializeField] float waitTime = 0.5f;
     [SerializeField] float maxDistance = 0;
-    [SerializeField] float rotationSpeed = 720;
+    //[SerializeField] float rotationSpeed = 720;
     Vector3 rotPatrol;
 
     [Header("Detect")]
@@ -23,6 +23,7 @@ public class Chef : MonoBehaviour
     [SerializeField] Transform eyeOrigin2;
     [SerializeField] float eyeRadius;
     [SerializeField] float eyeDistance;
+    [SerializeField] float suspectDistance;
     float eyeDistanceCurrent;
 
     [Header("Speeds")]
@@ -72,6 +73,13 @@ public class Chef : MonoBehaviour
                 break;
             case State.SUSPECT:
                 agent.updateRotation = false;
+                agent.SetDestination(GameManager.instance.player.transform.position);
+
+                Debug.Log(Vector3.Distance(transform.position, targetCurrent.position));
+
+                if (Vector3.Distance(transform.position, targetCurrent.position) <= suspectDistance)
+                    ChangeState(State.PATROL, null);
+                    
                 break;
 
             case State.CHASE:
@@ -83,7 +91,6 @@ public class Chef : MonoBehaviour
         Detect();
 
         animator.SetBool("atk", state == State.CHASE);
-        animator.SetBool("look", state == State.SUSPECT);
         animator.SetBool("walk", state == State.PATROL);
     }
     void Move()
@@ -128,11 +135,6 @@ public class Chef : MonoBehaviour
         //Detectar al jugador
         if (Physics.SphereCast(eyeOrigin.position, eyeRadius, eyeOrigin.forward, out RaycastHit hit, eyeDistance, whatItDetects))
         {
-            if (hit.collider.CompareTag("Player") && state == State.SUSPECT)
-            {
-                Debug.Log("CHEF sospecha de jugador");
-            }
-
             if (hit.collider.CompareTag("Player") && state != State.CHASE)
             {
                 Debug.Log("CHEF persigue jugador");
@@ -186,6 +188,7 @@ public class Chef : MonoBehaviour
                 break;
         }
     }
+
     public void BackToPatrol()
     {
         state = State.PATROL;
